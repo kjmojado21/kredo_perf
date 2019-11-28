@@ -17,9 +17,6 @@ function add_teacher($fname,$lname,$status){
     }else{
         header('location:');
     }
-
-
-
 }
 // displaying all teacher list (FOR SELECT TAG)
 function displayTeachers(){
@@ -73,6 +70,11 @@ function uploadTeacherPhoto($name){
     
 
 }
+function getCourses(){
+    $connection = $this->conn;
+    $sql = "";
+}
+
 }
 
 

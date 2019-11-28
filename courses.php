@@ -43,7 +43,7 @@
             <div class="sidebar-sticky">
                <ul class="nav flex-column">
                   <li class="nav-item">
-                     <a class="nav-link active" href="#">
+                     <a class="nav-link" href="dashboard.php">
                         <i data-feather="home"></i>
                         Dashboard
                      </a>
@@ -55,9 +55,9 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="courses.php">
+                     <a class="nav-link active" href="#">
                         <i data-feather="list"></i>
-                        Course
+                        Courses
                      </a>
                   </li>
                   <li class="nav-item">
@@ -69,50 +69,24 @@
                </ul>
             </div>
          </div>
+         <style>
+            .card:hover{
+               background-color: #f5f5f5;
+            }
+         </style>
 
          <!-- MAIN (RIGHT) -->
          <main role="main" class="ml-sm-auto col-md-10 px-5">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3 mb-3 border-bottom">
-               <div class="btn-group">
-                  <button class="btn btn-secondary btn-sm text-left" type="button">Select teacher</button>
-                  <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
-                     <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Teacher 1</a>
-                     <a class="dropdown-item" href="#">Teacher 2</a>
-                     <a class="dropdown-item" href="#">Teacher 3</a>
-                     <a class="dropdown-item" href="#">Teacher 4</a>
-                  </div>
-               </div>
-            </div> <!-- END OF DROPDOWN CONTAINER-->
-            <div class="container-fluid mt-4">
-               <div class="row mt-3">
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Attendance</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Evaluation</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Management</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Student Survey</h6>
-                     </a>
-                  </div>
-
-               </div>
+               <!-- justify-content-between -->
+               <h1 class="display-4">Courses</h1>
+            </div> <!-- END OF SECTION -->
+            
          </main>
       </div>
    </div>
+
+
 
 
    <!-- Optional JavaScript -->

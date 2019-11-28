@@ -55,6 +55,12 @@
                      </a>
                   </li>
                   <li class="nav-item">
+                     <a class="nav-link" href="courses.php">
+                        <i data-feather="list"></i>
+                        Courses
+                     </a>
+                  </li>
+                  <li class="nav-item">
                      <a class="nav-link" href="#">
                         <i data-feather="settings"></i>
                         Settings
