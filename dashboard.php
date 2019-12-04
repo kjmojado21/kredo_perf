@@ -1,128 +1,129 @@
-<!doctype html>
-<html lang="en">
+<?php include('view/header.php'); ?>
+<title>Dashboard</title>
+<style>
+   .card .card-footer {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+</style>
 
-<head>
-   <title></title>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="container-fluid">
+   <div class="row">
+      <!-- SIDEBAR (LEFT) -->
+      <div class="col-md-2 d-none d-md-block bg-light sidebar">
+         <div class="sidebar-sticky ml-2">
+            <ul class="nav flex-column text-truncate">
+               <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                     <i data-feather="home"></i>
+                     Dashboard
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="users.php">
+                     <i data-feather="users"></i>
+                     Users
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="attendance.php">
+                     <i data-feather="calendar"></i>
+                     Attendance
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <i data-feather="settings"></i>
+                     Settings
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
 
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-   <link rel="stylesheet" href="css/dashboard.css">
-
-   <!-- Feather icons -->
-   <script src="https://unpkg.com/feather-icons"></script>
-
-   <style>
-      .shadow {
-         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-      }
-   </style>
-</head>
-
-<body>
-   <!-- TOP NAVIGATION BAR -->
-   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-2 shadow">
-      <a class="navbar-brand col-3 col-md-2 mr-0" href="#">
-         <!-- TODO: insert kredo logo <img src="" alt="Kredo Cebu logo"> -->
-         Kredo IT Dept
-      </a>
-      <ul class="navbar-nav px-3">
-         <li class="nav-item text-nowrap">
-            <a class="nav-link text-danger" href="#">Sign out</a>
-         </li>
-      </ul>
-   </nav>
-
-   <div class="container-fluid">
-      <div class="row">
-         <!-- SIDEBAR (LEFT) -->
-         <div class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-               <ul class="nav flex-column">
-                  <li class="nav-item">
-                     <a class="nav-link active" href="#">
-                        <i data-feather="home"></i>
-                        Dashboard
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="users.php">
-                        <i data-feather="users"></i>
-                        Users
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="courses.php">
-                        <i data-feather="list"></i>
-                        Course
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">
-                        <i data-feather="settings"></i>
-                        Settings
-                     </a>
-                  </li>
-               </ul>
+      <!-- MAIN (RIGHT) -->
+      <main role="main" class="ml-sm-auto col-md-10 px-5">
+         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-5 pb-2 border-bottom">
+            <div>
+               <h4 class="">Kyle Nurville</h4>
+               <p class="text-muted">Other details of this person</p>
+            </div>
+            <div class="btn-group">
+               <button class="btn btn-secondary btn-sm" type="button">Select teacher</button>
+               <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+                  <span class="sr-only">Toggle Dropdown</span>
+               </button>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Teacher 1</a>
+                  <a class="dropdown-item" href="#">Teacher 2</a>
+                  <a class="dropdown-item" href="#">Teacher 3</a>
+                  <a class="dropdown-item" href="#">Teacher 4</a>
+               </div>
+            </div>
+         </div> <!-- END OF FIRST SECTION -->
+         <!--
+   TODO:
+   * remove style=bg of card elements
+   * create new bg classes on CSS (!important)
+   * finalize layout of dashboard
+   * allocate space for Name of teacher on first section
+   
+-->
+         <div class="container-fluid row">
+            <div class="card col-md-4 m-2 px-0 border-0">
+               <a href="#" class="btn p-0 text-light">
+                  <div class="card-body" style="background-color: #1abc9c">
+                     <h6 class="display-4">30%</h6>
+                  </div>
+                  <div class="card-footer lead" style="background-color: #16a085">
+                     ATTENDANCE
+                  </div>
+               </a>
+            </div>
+            <div class="card col-md m-2 px-0 border-0">
+               <a href="#" class="btn p-0 text-light">
+                  <div class="card-body" style="background-color: #e67e22">
+                     <h6 class="display-4">-</h6>
+                  </div>
+                  <div class="card-footer lead" style="background-color: #d35400">
+                     EVALUATION
+                  </div>
+               </a>
+            </div>
+            <div class="card col-md m-2 px-0 border-0">
+               <a href="#" class="btn p-0 text-light">
+                  <div class="card-body" style="background-color: #3498db">
+                     <h6 class="display-4">20%</h6>
+                  </div>
+                  <div class="card-footer lead" style="background-color: #2980b9">
+                     MANAGEMENT SCORE
+                  </div>
+               </a>
             </div>
          </div>
 
-         <!-- MAIN (RIGHT) -->
-         <main role="main" class="ml-sm-auto col-md-10 px-5">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3 mb-3 border-bottom">
-               <div class="btn-group">
-                  <button class="btn btn-secondary btn-sm text-left" type="button">Select teacher</button>
-                  <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
-                     <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Teacher 1</a>
-                     <a class="dropdown-item" href="#">Teacher 2</a>
-                     <a class="dropdown-item" href="#">Teacher 3</a>
-                     <a class="dropdown-item" href="#">Teacher 4</a>
+         <div class="container-fluid row mb-5">
+            <div class="card col-md-4 m-2 px-0 border-0">
+               <a href="#" class="btn p-0 text-light">
+                  <div class="card-body" style="background-color: #f1c40f">
+                     <h6 class="display-4">30%</h6>
                   </div>
+                  <div class="card-footer lead" style="background-color: #f39c12">
+                     STUDENT SURVEY
+                  </div>
+               </a>
+            </div>
+            <div class="card col-md m-2 px-0 text-center">
+               <div class="card-body" style="">
+                  <h6 class="display-4">100%</h6>
                </div>
-            </div> <!-- END OF DROPDOWN CONTAINER-->
-            <div class="container-fluid mt-4">
-               <div class="row mt-3">
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Attendance</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Evaluation</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Management</h6>
-                     </a>
-                  </div>
-                  <div class="card py-5 col-md m-3 bg-transparent border">
-                     <a class="card-block stretched-link text-decoration-none" href="">
-                        <h6 class="lead text-truncate">Student Survey</h6>
-                     </a>
-                  </div>
+               <div class="card-footer lead" style="">TOTAL</div>
+            </div>
+         </div>
 
-               </div>
-         </main>
-      </div>
+      </main>
    </div>
+</div>
 
-
-   <!-- Optional JavaScript -->
-   <script>
-      feather.replace()
-   </script>
-   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?php include('view/footer.php'); ?>
