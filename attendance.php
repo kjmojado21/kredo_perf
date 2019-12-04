@@ -2,19 +2,48 @@
 <title>Attendance</title>
 
 <style>
-   td:nth-child(n+3) {
+   #datepicker {
+      outline: 0;
+      border-width: 0 0 3px;
+      font-size: 2.3rem;
+   }
+
+   #datepicker:not(:placeholder-shown) {
+      color: #404040;
+      border-color: #404040;
+      box-shadow: 0 6px 6px -6px #404040;
+   }
+
+   #datepicker::-webkit-search-cancel-button {
+      font-size: 1.2rem;
+   }
+
+   .ui-datepicker {
+      margin-top: 10px;
+      z-index: 1000;
+   }
+
+   #datepicker:focus {
+      border-color: #80bdff;
+      outline: 0;
+      -webkit-box-shadow: 0 6px 6px -6px #80bdff;
+      -moz-box-shadow: 0 6px 6px -6px #80bdff;
+      box-shadow: 0 6px 6px -6px #80bdff;
+   }
+
+   #attendanceTable td:nth-child(n+3) {
       height: 60px;
       padding: 0 !important;
    }
 
-   td button {
+   #attendanceTable td button {
       height: 100%;
       width: 100%;
       border: 0;
       background-color: transparent;
    }
 
-   td {
+   td:first-child {
       text-align: center;
    }
 
@@ -59,13 +88,17 @@
 
       <!-- MAIN (RIGHT) -->
       <main role="main" class="ml-sm-auto col-md-10 px-5">
-         <div class="d-flex flex-wrap flex-md-nowrap align-items-center my-5 pb-2 border-bottom">
+         <div class="d-flex flex-wrap flex-md-nowrap my-5 pb-2 border-bottom">
             <i>
                <h1 class="display-4 text-muted">Attendance</h1>
             </i>
          </div> <!-- END OF FIRST SECTION -->
 
-         <table id="attendanceTable" class="table table-bordered table-hover" style="width:100%">
+         <div class="text-center mb-4">
+            <input type="search" id="datepicker" class="w-25 text-center" placeholder="Select date">
+         </div>
+
+         <table id="attendanceTable" class="table table-bordered table-hover w-100">
             <thead class="table-dark">
                <tr>
                   <th class=""></th>
@@ -115,12 +148,21 @@
 
 
 <script>
+   $(function() {
+      $("#datepicker").datepicker();
+   });
+
    $(document).ready(function() {
       var attendanceTable = $('#attendanceTable').DataTable({
          "columnDefs": [{
-            "width": "60px",
-            "targets": [2, 3, 4]
-         }],
+               "width": "60px",
+               "targets": [2, 3, 4]
+            },
+            {
+               "width": "40px",
+               "targets": 0
+            }
+         ],
          "info": false,
          "paging": false
       });
