@@ -1,4 +1,12 @@
+<?php
+include('db_connection.php');
+
+$loadTeachers = mysqli_query($conn, "SELECT * FROM teachers ORDER BY teacher_id;");
+
+?>
+
 <?php include('view/header.php'); ?>
+
 <title>Dashboard</title>
 <style>
    .card .card-footer {
@@ -46,6 +54,7 @@
       <main role="main" class="ml-sm-auto col-md-10 px-5">
          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-5 pb-2 border-bottom">
             <div>
+               <!-- TODO: Show SELECTED teacher name here -->
                <h4 class="">Kyle Nurville</h4>
                <p class="text-muted">Other details of this person</p>
             </div>
@@ -54,22 +63,24 @@
                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
                   <span class="sr-only">Toggle Dropdown</span>
                </button>
+               <!-- TODO: RETRIEVE TEACHERS FROM DB -->
                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Teacher 1</a>
-                  <a class="dropdown-item" href="#">Teacher 2</a>
-                  <a class="dropdown-item" href="#">Teacher 3</a>
-                  <a class="dropdown-item" href="#">Teacher 4</a>
+                  <?php
+                     while ($rowT = mysqli_fetch_array($loadTeachers)) {
+                        $id = $rowT['teacher_id'];
+                  ?>
+                  <a class="dropdown-item" href="#"><?= $rowT['teacher_fname'] . " " . $rowT['teacher_lname']; ?></a>
+                  <?php } ?>
                </div>
             </div>
          </div> <!-- END OF FIRST SECTION -->
-         <!--
-   TODO:
-   * remove style=bg of card elements
-   * create new bg classes on CSS (!important)
-   * finalize layout of dashboard
-   * allocate space for Name of teacher on first section
-   
--->
+            <!--
+            TODO:
+            *  remove style=bg of card elements
+               create new bg classes on CSS (!important)
+            * finalize layout of dashboard
+            * allocate space for Name of teacher on first section
+            -->
          <div class="container-fluid row">
             <div class="card col-md-4 m-2 px-0 border-0">
                <a href="#" class="btn p-0 text-light">

@@ -25,7 +25,6 @@
 
    #datepicker:focus {
       border-color: #80bdff;
-      outline: 0;
       -webkit-box-shadow: 0 6px 6px -6px #80bdff;
       -moz-box-shadow: 0 6px 6px -6px #80bdff;
       box-shadow: 0 6px 6px -6px #80bdff;
@@ -95,9 +94,10 @@
          </div> <!-- END OF FIRST SECTION -->
 
          <div class="text-center mb-4">
-            <input type="search" id="datepicker" class="w-25 text-center" placeholder="Select date">
+            <input type="search" id="datepicker" class="text-center" placeholder="Select date" style="width: 35%;">
          </div>
-
+         
+<!-- TODO: RETRIEVE TEACHERS FROM DB -->
          <table id="attendanceTable" class="table table-bordered table-hover w-100">
             <thead class="table-dark">
                <tr>
