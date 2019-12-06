@@ -1,4 +1,13 @@
+<?php
+include('db_connection.php'); {
+   
+// $loadTeachers = mysqli_query($conn, "SELECT * FROM teachers INNER JOIN attendance ON teachers.teacher_id = attendance.teacher_id ORDER BY teacher_id;");
+}
+
+?>
+
 <?php include('view/header.php'); ?>
+
 <title>Attendance</title>
 
 <style>
@@ -94,10 +103,10 @@
          </div> <!-- END OF FIRST SECTION -->
 
          <div class="text-center mb-4">
-            <input type="search" id="datepicker" class="text-center" placeholder="Select date" style="width: 35%;">
+            <input type="search" id="datepicker" name="datepicker" class="text-center" placeholder="Select date" style="width: 35%;">
          </div>
-         
-<!-- TODO: RETRIEVE TEACHERS FROM DB -->
+
+         <!-- TODO: RETRIEVE TEACHERS FROM DB -->
          <table id="attendanceTable" class="table table-bordered table-hover w-100">
             <thead class="table-dark">
                <tr>
@@ -109,57 +118,112 @@
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>
-                     <h6>Juan dela Cruz</h6>
-                     <p>Dev teacher</p>
-                  </td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>
-                     <h6>Maria Reyes</h6>
-                     <p>Dev teacher</p>
-                  </td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>
-                     <h6>Pepito dela Cerna</h6>
-                     <p>Dev teacher</p>
-                  </td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-                  <td><button></button></td>
-               </tr>
+               <?php
+               // function loadToTable($loadTeachers)
+               // {
+                  // while ($rowA = mysqli_fetch_array($loadTeachers)) {
+                     ?>
+                     <tr>
+                        <td class="h5">
+                           <!-- <?= $rowA['teacher_id'] ?> -->
+                        </td>
+                        <td>
+                           <h5>
+                              <!-- <?=  $rowA['teacher_fname'] . " " . $rowA['teacher_lname']; ?> -->
+                           </h5>
+                           <small>
+                              <!-- <?= $rowA['stat'] ?> -->
+                           </small>
+                        </td>
+                        <td><button></button></td>
+                        <td><button></button></td>
+                        <td><button></button></td>
+                     </tr> -->
+               <?php
+               // }}
+               ?>
             </tbody>
          </table>
       </main>
    </div>
 </div>
 
-
-
+<!-- TODO: Add remarks to attendance table -->
+<!-- TODO: Load remarks on table when DATE is selected -->
 <script>
-   $(function() {
-      $("#datepicker").datepicker();
-   });
-
    $(document).ready(function() {
+      $('#datepicker').datepicker({
+         dateFormat: 'yy-mm-dd'
+      }).datepicker('setDate', new Date());
+
+      $('#datepicker').ready(function() {
+         var dateP = $('#datepicker').val();
+         /* 
+          * TODO: Load the table with DATE of current date
+          * current date is dateP
+          */
+
+         // var hey = document.getElementById('datepicker').value;
+         // console.log('Ready: ' + hey);
+         // loadTeachers();
+      });
+
+      $('#datepicker').change(function() {
+         var dateP = $(this).val();
+         /*
+          * TODO: Load the table using date selected
+          * date selected is dateP
+          */
+
+         // console.log('Changed: ' + valyou);
+         // loadTeachers(valyou);
+      });
+
+      // function loadTeachers(selectedDate) {
+      //    console.log(selectedDate);
+      //    $.ajax({
+      //       type: 'post',
+      //       url: 'attendance.php',
+      //       data: {
+      //          yow: 'try',
+      //          date: selectedDate
+      //       },
+      //       success: function() {
+      //          console.log("LOADED SUCCESSFULLY.");
+      //       }
+      //    });
+      // }
+      // $('#datepicker').bind({
+      //    ready: function() {
+      //       alert('date picker is ready.');
+
+      //    },
+      //    change: function(e) {
+      //       var valyu = $(this).val();
+      //       alert('date picker was changed.' + valyu);
+
+      //    }
+      // });
+
+      // DO NOT DELETE YET
+      // $(':button').prop('disabled', true);
+
+      // $('#datepicker').change(function() {
+      //    if ($('#datepicker').val() == "") {
+      //       $(':button').prop('disabled', true);
+      //    } else {
+      //       $(':button').prop('disabled', false);
+      //    }
+      // });
+
+
       var attendanceTable = $('#attendanceTable').DataTable({
-         "columnDefs": [{
-               "width": "60px",
+         'columnDefs': [{
+               "width": "80px",
                "targets": [2, 3, 4]
             },
             {
-               "width": "40px",
+               "width": "10%",
                "targets": 0
             }
          ],
@@ -179,6 +243,11 @@
                $(attendanceTable.cell(rowIdx, 4).node()).children().removeClass();
 
                $(this).addClass('bg-success');
+               /*
+                * TODO: Save to attendance (table)
+                * teacher_id is data[0]
+                * remarks is Present
+                */
             }
 
          } else if (colIdx == 3) {
@@ -189,6 +258,11 @@
                $(attendanceTable.cell(rowIdx, 4).node()).children().removeClass();
 
                $(this).addClass('bg-warning');
+               /*
+                * TODO: Save to attendance (table)
+                * teacher_id is data[0]
+                * remarks is Late
+                */
             }
          } else if (colIdx == 4) {
             if ($(this).hasClass('bg-danger')) {
@@ -198,6 +272,11 @@
                $(attendanceTable.cell(rowIdx, 3).node()).children().removeClass();
 
                $(this).addClass('bg-danger');
+               /*
+                * TODO: Save to attendance (table)
+                * teacher_id is data[0]
+                * remarks is Absent
+                */
             }
          }
       });

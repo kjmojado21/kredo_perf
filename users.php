@@ -70,17 +70,19 @@ if (isset($_POST['btnRemove'])) {
       width: 36px;
       height: 36px;
    }
+
    select:required:invalid {
-  color: gray;
+   color: gray;
    }
+
    option[value=""][disabled] {
    display: none;
    }
+
    option {
    color: black;
    }
 </style>
-
 
 <div class="container-fluid">
    <div class="row">
@@ -131,7 +133,7 @@ if (isset($_POST['btnRemove'])) {
                $id = $row['teacher_id'];
                ?>
                <div class="col-md-3 m-2 px-0">
-                  <div class="card">
+                  <div class="card" id="userCard">
                      <div class="card-header text-muted">
                         <p class="d-inline">Title/Position</p>
                         <div class="btn-group float-right" role="group">

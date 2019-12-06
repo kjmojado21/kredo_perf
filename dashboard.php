@@ -1,3 +1,4 @@
+<!-- TODO: Create LOAD TEACHERS function on db_connection / functions -->
 <?php
 include('db_connection.php');
 
@@ -54,32 +55,29 @@ $loadTeachers = mysqli_query($conn, "SELECT * FROM teachers ORDER BY teacher_id;
       <main role="main" class="ml-sm-auto col-md-10 px-5">
          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-5 pb-2 border-bottom">
             <div>
-               <!-- TODO: Show SELECTED teacher name here -->
-               <h4 class="">Kyle Nurville</h4>
-               <p class="text-muted">Other details of this person</p>
+               <h4 class="teacherName">------</h4>
+               <p class="text-muted teacherStatus">------</p>
             </div>
-            <div class="btn-group">
-               <button class="btn btn-secondary btn-sm" type="button">Select teacher</button>
-               <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
-                  <span class="sr-only">Toggle Dropdown</span>
+
+            <div class="btn-group dropleft">
+               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select teacher
                </button>
-               <!-- TODO: RETRIEVE TEACHERS FROM DB -->
                <div class="dropdown-menu">
                   <?php
-                     while ($rowT = mysqli_fetch_array($loadTeachers)) {
-                        $id = $rowT['teacher_id'];
-                  ?>
-                  <a class="dropdown-item" href="#"><?= $rowT['teacher_fname'] . " " . $rowT['teacher_lname']; ?></a>
+                  while ($rowD = mysqli_fetch_array($loadTeachers)) {
+                     $id = $rowD['teacher_id'];
+                     ?>
+                     <a class="dropdown-item" data-id="<?= $id; ?>" data-status="<?= $rowD['stat']; ?>" href="#"><?= $rowD['teacher_fname'] . " " . $rowD['teacher_lname']; ?></a>
                   <?php } ?>
                </div>
             </div>
          </div> <!-- END OF FIRST SECTION -->
-            <!--
+         <!--
             TODO:
             *  remove style=bg of card elements
                create new bg classes on CSS (!important)
             * finalize layout of dashboard
-            * allocate space for Name of teacher on first section
             -->
          <div class="container-fluid row">
             <div class="card col-md-4 m-2 px-0 border-0">
@@ -138,3 +136,10 @@ $loadTeachers = mysqli_query($conn, "SELECT * FROM teachers ORDER BY teacher_id;
 </div>
 
 <?php include('view/footer.php'); ?>
+
+<script>
+   $('.dropdown-menu a').on('click', function() {
+      $('.teacherName').text($(this).text());
+      $('.teacherStatus').text($(this).data('status'));
+   });
+</script>
